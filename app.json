@@ -9,9 +9,9 @@
     "pages/sales/sales"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#2c6aa0",
     "navigationBarTitleText": "Noah商户系统",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "debug": true
 }

@@ -59,6 +59,9 @@ page, .page {
 .fa-search:before {
 	content: "\f002"
 }
+.fa-paperclip:before{
+  content:"\f0c6"
+}
 .page-siderbarcontent {
   height: 100%;
   width: 350rpx;
@@ -97,7 +100,7 @@ navigator {
 }
 
 .page-top {
-  height: 80rpx;
+  height: 7%;
   position: fixed;
   width: 750rpx;
   background-color: #2c6aa0;

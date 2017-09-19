@@ -36,6 +36,9 @@ App({
   globalData: {
     userInfo: null,
     open: false,
+    startmarkX: 0,
+    startmarkY: 0,
+    endmarkY: 0,
     mark: 0,
     newmark: 0,
     b:false
