@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/notice/notice",
+    "pages/home/home",
+    "pages/vericancel/vericancel",
+    "pages/financial/financial",
+    "pages/repair/repair",
+    "pages/complain/complain",
+    "pages/sales/sales"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Noah商户系统",
+    "navigationBarTextStyle": "black"
+  },
+  "debug": true
+}

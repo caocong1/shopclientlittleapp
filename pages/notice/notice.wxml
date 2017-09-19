@@ -1,0 +1,15 @@
+<!--pages/notice/notice.wxml-->
+<view class="page">
+  <include src="../siderbar.wxml"/>
+    <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
+      <include src="../pagetop.wxml"/>
+      <view class="main-container">
+        <view class="searchbar">
+          <input type="text" placeholder="请输入搜索内容" placeholder-style="color:whitesmoke"/>
+          <button class="searchbtn" size="mini">
+            <text class="fa fa-search fa-fw"></text>
+          </button>
+        </view>
+      </view>
+    </view>
+</view>

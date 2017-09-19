@@ -1,0 +1,55 @@
+  <view class="page-siderbarcontent">
+    <view class="page-sidebar">
+      <view class="wc">
+        <navigator url="../home/home" open-type="redirect" hover-class="navigator-hover">
+          <text class=" fa fa-home fa-fw"/>
+          首页
+        </navigator>
+      </view>
+      <view class="wc">
+        <navigator url="../notice/notice" open-type="redirect" hover-class="navigator-hover">
+          <text class=" fa fa-envelope-open fa-fw"/>
+          通知公告
+        </navigator>
+      </view>
+      <view class="wc">
+        <navigator url="../vericancel/vericancel" open-type="redirect" hover-class="navigator-hover">
+          <text class=" fa fa-thumbs-up fa-fw"/>
+          核销卡券
+        </navigator>
+      </view>
+      <view class="wc">
+        <navigator url="../repair/repair" open-type="redirect" hover-class="navigator-hover">
+          <text class=" fa fa-wrench fa-fw"/>
+          工程报修
+        </navigator>
+      </view>
+      <view class="wc">
+        <navigator url="../complain/complain" open-type="redirect" hover-class="navigator-hover">
+          <text class=" fa fa-headphones fa-fw"/>
+          顾客投诉
+        </navigator>
+      </view>
+      <view class="wc">
+        <navigator url="../sales/sales" open-type="redirect" hover-class="navigator-hover">
+          <text class=" fa fa-rmb fa-fw"/>
+          销售调整
+        </navigator>
+      </view>
+      <view class="wc">
+        <navigator url="../financial/financial" open-type="redirect" hover-class="navigator-hover">
+          <text class=" fa fa-newspaper-o fa-fw"/>
+          财务单据
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <!-- <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
+    <view class="page-top">
+      <button size="mini" bindtap="tap_ch" hover-class="button-hover" hover-stay-time="150" plain="true"></button>
+      <view class="text">
+        <text class="fa fa-fw {{titleicon}}"/>
+        {{title}}
+      </view>
+    </view>
+  </view> -->

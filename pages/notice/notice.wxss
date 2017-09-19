@@ -1,0 +1,30 @@
+/* pages/notice/notice.wxss */
+.searchbar{
+  width:100%;
+  height:80rpx;
+  background-color: #208be8;
+  padding-top:10rpx;
+  padding-left:10rpx;
+  padding-bottom:10rpx;
+
+}
+.searchbar input{
+  background-color:#4aa1ea;
+  margin-top:5rpx;
+  border-radius:7rpx;
+  color:#fff;
+  height:70rpx;
+  padding-left:10rpx;
+  width:250px;
+  margin-right:0;
+  float:left;
+}
+.searchbtn{
+  margin-top:5rpx;
+  position: absolute;
+  height:70rpx;
+  background-color:#4aa1ea;
+  color:#fff;
+  font-size:33rpx!important;
+
+}

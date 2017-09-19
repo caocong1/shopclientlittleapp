@@ -1,0 +1,7 @@
+<view class="page-top">
+  <button size="mini" bindtap="tap_ch" hover-class="button-hover" hover-stay-time="150" plain="true"></button>
+  <view class="text">
+    <text class="fa fa-fw {{titleicon}}"/>
+    {{title}}
+  </view>
+</view>

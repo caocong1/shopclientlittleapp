@@ -1,0 +1,28 @@
+/* pages/home/home.wxss */
+.homebtn {
+  width: 200rpx;
+  height: 323rpx;
+  color: #5a5a5a;
+  background-image: linear-gradient(to bottom, #f4f4f4 0, #e6e6e6 100%);
+  box-shadow:0 5rpx 5rpx #777;
+  margin-left:38rpx;
+  margin-top:66rpx;
+  display:inline-block;
+  line-height:2.3;
+  padding-left:0;
+  padding-right:0;
+  border-radius:10px;
+  text-align: center;
+  border:1rpx solid rgba(0, 0, 0, 0.2);
+}
+.homebtn-hover {
+  box-shadow:none;
+  color:darkblue
+}
+.icon{
+  font-size: 77rpx;
+  margin-top: 88rpx;
+}
+.icontext{
+  font-size: 33rpx;
+}

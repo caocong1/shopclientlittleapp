@@ -1,0 +1,153 @@
+/**app.wxss**/
+
+page, .page {
+  height: 100%;
+  font-family: 'PingFang SC',
+                 'Helvetica Neue',
+                 Helvetica,
+                 'Droid Sans Fallback',
+                 'Microsoft Yahei',
+                 sans-serif;
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('https://cdn.bootcss.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf') format('truetype');
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14rpx/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+.fa-home:before {
+  content: "\f015";
+}
+
+.fa-envelope-open:before {
+  content: "\f2b6";
+}
+
+.fa-newspaper-o:before {
+  content: "\f1ea";
+}
+
+.fa-wrench:before {
+  content: "\f0ad";
+}
+
+.fa-headphones:before {
+  content: "\f025";
+}
+
+.fa-rmb:before {
+  content: "\f157";
+}
+
+.fa-thumbs-up:before {
+  content: "\f164";
+}
+.fa-search:before {
+	content: "\f002"
+}
+.page-siderbarcontent {
+  height: 100%;
+  width: 350rpx;
+  position: fixed;
+  background-color: #222a2d;
+  z-index: 0;
+}
+
+.wc {
+  color: white;
+  padding: 0 0 0 0;
+  line-height: 100rpx;
+}
+
+navigator {
+  padding-left: 40rpx;
+}
+
+.navigator-hover {
+  background-color: #141a1b;
+  color: #7bb7e5;
+}
+
+.page-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: #fff;
+  z-index: 0;
+  transition: All 0.4s ease;
+  -webkit-transition: All 0.4s ease;
+}
+
+.page-sidebar {
+  padding-top: 150rpx;
+}
+
+.page-top {
+  height: 80rpx;
+  position: fixed;
+  width: 750rpx;
+  background-color: #2c6aa0;
+}
+
+.page-top image {
+  position: absolute;
+  width: 60rpx;
+  height: 40rpx;
+  padding-right: 40rpx;
+  padding-left: 40rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.page-top button {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAAAmAgMAAAAAQdVwAAAACVBMVEUAAAD///////9zeKVjAAAAAnRSTlMAEGsk3VwAAAAYSURBVCjPY9BahQpWkikycsBoiA1QiAEAw2iBbZnsMlMAAAAASUVORK5CYII=) no-repeat;
+  width: 100rpx;
+  height: 80rpx;
+  background-size: 60rpx 40rpx;
+  background-position-x: 20rpx;
+  background-position-y: 20rpx;
+  border: 0;
+  position: absolute;
+  margin-left: 20rpx;
+}
+
+.button-hover[plain] {
+  background-color: #3992c6;
+}
+
+.c-state1 {
+  transform: rotate(0deg) scale(1) translate(40%, 0%);
+  -webkit-transform: rotate(0deg) scale(1) translat(40%, 0%);
+}
+
+.text {
+  position: absolute;
+  margin: auto;
+  margin-top: 20rpx;
+  margin-left: 130rpx;
+  vertical-align: middle;
+  color: white;
+}
+
+.main-container {
+  background-color: whitesmoke;
+  margin-top: 80rpx;
+  height: 1200rpx;
+  width: 100%;
+  position: absolute;
+}
+
