@@ -9,10 +9,53 @@
           <text class="fa fa-search fa-fw"></text>
           <input type="text" confirm-type="查询" placeholder="请输入搜索内容" placeholder-style="color:#ddd"/>
         </view>
-        <view class="notice-item">
+        <!-- <view wx:for="{{[1, 2, 3, 4, 5]}}">
+          <template is="noticeitem" data="{{...item}}"/>
+        </view> -->
+        <template is="noticeitem" data="{{...item}}"/>
+        <!-- <view class="notice-item">
+          <text class="fa fa-circle fa-fw unreadot"></text>
           <view class="item-left">
             <view class="notice-title">
-              标题：9月11日全体店长会
+              <text>9月11日全体店长会</text>
+            </view>
+            <view class="notice-content">
+              9月11日在B1会议室召开全体...
+            </view>
+          </view>
+          <view class="item-right">
+            <view class="notice-time">
+              2017-9-10 12:24:33
+            </view>
+            <view class="notice-attr">
+              <text class='fa fa-paperclip fa-2x'></text>
+            </view>
+          </view>
+        </view> -->
+     <!--    <view class="notice-item">
+          <text class="fa fa-circle fa-fw unreadot"></text>
+          <view class="item-left">
+            <view class="notice-title">
+              9月11日全体店长会
+            </view>
+            <view class="notice-content">
+              9月11日在B1会议室召开全体...
+            </view>
+          </view>
+          <view class="item-right">
+            <view class="notice-time">
+              2017-9-10 12:24:33
+            </view>
+            <view class="notice-attr">
+              <text class='fa fa-paperclip fa-2x'></text>
+            </view>
+          </view>
+        </view>
+        <view class="notice-item">
+          <text class="fa fa-circle fa-fw unreadot"></text>
+          <view class="item-left">
+            <view class="notice-title">
+              9月11日全体店长会
             </view>
             <view class="notice-content">
               9月11日在B1会议室召开全体...
@@ -30,7 +73,7 @@
         <view class="notice-item">
           <view class="item-left">
             <view class="notice-title">
-              标题：9月11日全体店长会
+              9月11日全体店长会
             </view>
             <view class="notice-content">
               9月11日在B1会议室召开全体...
@@ -48,7 +91,7 @@
         <view class="notice-item">
           <view class="item-left">
             <view class="notice-title">
-              标题：9月11日全体店长会
+              9月11日全体店长会
             </view>
             <view class="notice-content">
               9月11日在B1会议室召开全体...
@@ -62,44 +105,30 @@
               <text class='fa fa-paperclip fa-2x'></text>
             </view>
           </view>
-        </view>
-        <view class="notice-item">
-          <view class="item-left">
-            <view class="notice-title">
-              标题：9月11日全体店长会
-            </view>
-            <view class="notice-content">
-              9月11日在B1会议室召开全体...
-            </view>
-          </view>
-          <view class="item-right">
-            <view class="notice-time">
-              2017-9-10 12:24:33
-            </view>
-            <view class="notice-attr">
-              <text class='fa fa-paperclip fa-2x'></text>
-            </view>
-          </view>
-        </view>
-        <view class="notice-item">
-          <view class="item-left">
-            <view class="notice-title">
-              标题：9月11日全体店长会
-            </view>
-            <view class="notice-content">
-              9月11日在B1会议室召开全体...
-            </view>
-          </view>
-          <view class="item-right">
-            <view class="notice-time">
-              2017-9-10 12:24:33
-            </view>
-            <view class="notice-attr">
-              <text class='fa fa-paperclip fa-2x'></text>
-            </view>
-          </view>
-        </view>
+        </view> -->
       </scroll-view>
     </view>
   </view>
 </view>
+
+<template name="noticeitem">
+  <view class="notice-item">
+    <text class="fa {{isread ? '' : 'fa-circle'}} fa-fw unreadot"></text>
+    <view class="item-left">
+      <view class="notice-title">
+        <text>{{noticetitle}}</text>
+      </view>
+      <view class="notice-content">
+        {{noticecontent}}
+      </view>
+    </view>
+    <view class="item-right">
+      <view class="notice-time">
+        {{noticetime}}
+      </view>
+      <view class="notice-attr">
+        <text class="fa {{hasattr?'fa-paperclip':''}} fa-2x"></text>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,66 +1,92 @@
 /* pages/notice/notice.wxss */
-.searchbar{
-  width:100%;
-  height:7%;
+
+.searchbar {
+  width: 100%;
+  height: 7%;
   background-color: #208be8;
-  padding-top:10rpx;
-  padding-bottom:10rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
 }
-.searchbar input{
-  background-color:#4aa1ea;
-  margin-top:5rpx;
-  margin-left:25rpx;
-  margin-right:25rpx;
-  border-radius:7rpx;
-  color:#fff;
-  height:70rpx;
-  width:618rpx;
-  padding-left:65rpx;
-  padding-right:20rpx;
+
+.searchbar input {
+  background-color: #4aa1ea;
+  margin-top: 5rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  border-radius: 7rpx;
+  color: #fff;
+  height: 70rpx;
+  width: 618rpx;
+  padding-left: 65rpx;
+  padding-right: 20rpx;
   position: absolute;
 }
-.searchbar text{
+
+.searchbar text {
   position: absolute;
   z-index: 88;
-  color:#fff;
-  margin-top:20rpx;
-  margin-left:35rpx;
-
+  color: #fff;
+  margin-top: 20rpx;
+  margin-left: 35rpx;
 }
-.notice-item{
+
+.notice-item {
   display: inline-flex;
-  flex-direction:row;
+  flex-direction: row;
   background-color: #fff;
   width: 800rpx;
-  height:17%;
+  height: 17%;
   border: 1rpx solid #d9d9d9;
-    border-left: 0;
-    border-right: 0;
+  border-left: 0;
+  border-right: 0;
   margin-bottom: 1%;
 }
-.item-left{
-  width:600rpx;
-  height:100%;
+
+.item-left {
+  /* width:600rpx; */
+  flex-grow: 1;
+  height: 100%;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: space-around;
 }
-.notice-title{
-  padding-left:20rpx;
-  padding-top:10rpx;
+
+.notice-title {
+  padding-left: 40rpx;
+  padding-top: 10rpx;
 }
-.notice-content{
-  padding-left:20rpx;
-  padding-top:10rpx;
+
+.notice-content {
+  padding-left: 40rpx;
+  padding-top: 10rpx;
   font-size: 0.9em;
-  color:lightslategray
+  color: lightslategray;
 }
-.item-right{
-  height:100%;
+
+.item-right {
+  flex-grow: 1;
+  height: 100%;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: space-around;
 }
-.main-container scroll-view{
+
+.notice-time {
+  font-size: 0.6em;
+}
+
+.notice-attr {
+  text-align: center;
+}
+
+.unreadot {
+  position: absolute;
+  color: #d32f2f;
+  margin-top:6rpx;
+  margin-left:6rpx;
+  font-size: 0.8em;
+}
+
+.main-container scroll-view {
   height: 93%;
 }

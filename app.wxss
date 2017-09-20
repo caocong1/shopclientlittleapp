@@ -62,6 +62,9 @@ page, .page {
 .fa-paperclip:before{
   content:"\f0c6"
 }
+.fa-circle:before {
+	content: "\f111"
+}
 .page-siderbarcontent {
   height: 100%;
   width: 350rpx;
