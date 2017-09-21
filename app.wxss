@@ -62,9 +62,15 @@ page, .page {
 .fa-paperclip:before{
   content:"\f0c6"
 }
-.fa-circle:before {
-	content: "\f111"
+.fa-leaf:before{
 }
+.fa-user:before{
+  content:"\f007"
+}
+.fa-lock:before{
+  content:"\f023"
+}
+  content:"\f06c"
 .page-siderbarcontent {
   height: 100%;
   width: 350rpx;
