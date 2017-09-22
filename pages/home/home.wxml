@@ -4,42 +4,44 @@
   <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
     <include src="../pagetop.wxml"/>
     <view class="main-container">
-      <navigator url="../notice/notice" open-type="redirect" class="homebtn" hover-class="homebtn-hover" hover-stay-time="120">
+      <view class="btn-container">
+      <navigator url="../notice/notice" open-type="redirect" class="homebtn" hover-class="homebtn-hover1" hover-stay-time="200" style="background-color: #607D8B;border-color:#607D8B;">
         <text class="fa fa-envelope-open fa-fw icon"/>
         <text class="icontext">
           通知公告
         </text>
       </navigator>
-      <navigator url="../vericancel/vericancel" open-type="redirect" class="homebtn" hover-class="homebtn-hover" hover-stay-time="120">
+      <navigator url="../vericancel/vericancel" open-type="redirect" class="homebtn" hover-class="homebtn-hover2" hover-stay-time="200" style="background-color: #651FFF;border-color:#651FFF;">
         <text class="fa fa-thumbs-up fa-fw icon"/>
         <text class="icontext">
           核销卡券
         </text>
       </navigator>
-      <navigator url="../repair/repair" open-type="redirect" class="homebtn" hover-class="homebtn-hover" hover-stay-time="120">
+      <navigator url="../repair/repair" open-type="redirect" class="homebtn" hover-class="homebtn-hover3" hover-stay-time="200" style="background-color: #2979FF;border-color:#2979FF;">
         <text class="fa fa-wrench fa-fw icon"/>
         <text class="icontext">
           工程报修
         </text>
       </navigator>
-      <navigator url="../complain/complain" open-type="redirect" class="homebtn" hover-class="homebtn-hover" hover-stay-time="120">
+      <navigator url="../complain/complain" open-type="redirect" class="homebtn" hover-class="homebtn-hover4" hover-stay-time="200" style="background-color: #00B8D4;border-color:#00B8D4;">
         <text class="fa fa-headphones fa-fw icon"/>
         <text class="icontext">
           顾客投诉
         </text>
       </navigator>
-      <navigator url="../complain/complain" open-type="redirect" class="homebtn" hover-class="homebtn-hover" hover-stay-time="120">
+      <navigator url="../complain/complain" open-type="redirect" class="homebtn" hover-class="homebtn-hover5" hover-stay-time="200" style="background-color: #00C853;border-color:#00C853;">
         <text class="fa fa-rmb fa-fw icon"/>
         <text class="icontext">
           销售调整
         </text>
       </navigator>
-      <navigator class="homebtn" size="mini" hover-class="homebtn-hover" hover-stay-time="120">
+      <navigator url="../complain/complain" open-type="redirect" class="homebtn" hover-class="homebtn-hover6" hover-stay-time="200" style="background-color: #FF6D00;border-color:#FF6D00;">
         <text class="fa fa-newspaper-o fa-fw icon"/>
         <text class="icontext">
           财务单据
         </text>
       </navigator>
+      </view>
     </view>
   </view>
 </view>

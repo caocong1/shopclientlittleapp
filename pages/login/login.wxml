@@ -1,23 +1,22 @@
 <!--pages/login/login.wxml-->
 <view class="container page">
   <view class="title">
-      <text class="fa fa-leaf fa-fw" style="float: left;margin-left:-90rpx;"></text>
-      Noah商户系统
+      <text class="fa fa-leaf fa-fw" style="width: 100%;margin-left: 0;position: static;font-weight:bold;color:#C5E1A5">Noah商户系统</text>
   </view>
   <form>
     <view class="input">
       <text class="fa fa-home fa-fw"></text>
-      <input type="text" confirm-type="确定" placeholder="请输入店铺号" placeholder-style="color:#ddd"/>
+      <input type="text" bindblur="inputstorecode" confirm-type="确定" placeholder="请输入店铺号" placeholder-style="color:#bbb"/>
     </view>
     <view class="input">
       <text class="fa fa-user fa-fw"></text>
-      <input type="text" confirm-type="确定" placeholder="请输入用户名" placeholder-style="color:#ddd"/>
+      <input type="text" bindblur="inputusername" confirm-type="确定" placeholder="请输入用户名" placeholder-style="color:#bbb"/>
     </view>
     <view class="input">
       <text class="fa fa-lock fa-fw"></text>
-      <input type="text" password="true" confirm-type="确定" placeholder="请输入密码" placeholder-style="color:#ddd"/>
+      <input type="text" bindblur="inputpassword" password="true" confirm-type="确定" placeholder="请输入密码" placeholder-style="color:#bbb"/>
     </view>
     <button size="default" bindtap="login" type="primary" form-type="submit" hover-class="button-hover">确定</button>
-    <button size="default" type="warn" form-type="reset" hover-class="button-hover">重置</button>
+    <button size="default" type="default" form-type="reset" hover-class="button-hover">重置</button>
   </form>
 </view>

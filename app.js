@@ -13,6 +13,7 @@ App({
     endmarkY: 0,
     mark: 0,
     newmark: 0,
-    b:false
+    b:false,
+    useravater:''
   },
 })

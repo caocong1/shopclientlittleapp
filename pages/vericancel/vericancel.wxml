@@ -3,5 +3,13 @@
     <include src="../siderbar.wxml"/>
     <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
       <include src="../pagetop.wxml"/>
+      <view class='main-container'>
+        <button class="scanbtn" bindtap="scancode">
+          <text class="fa fa-qrcode fa-fw"/>
+          二维码扫描
+        </button>
+        <input type="text" bindblur="inputscancode" confirm-type="确定" placeholder="请输入卡卷的号码" placeholder-style="color:#bbb"/>
+        <text>{{res}}</text>
+      </view>
     </view>
 </view>

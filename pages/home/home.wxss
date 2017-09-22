@@ -1,28 +1,55 @@
 /* pages/home/home.wxss */
-.homebtn {
-  width: 200rpx;
-  height: 323rpx;
-  color: #5a5a5a;
-  background-image: linear-gradient(to bottom, #f4f4f4 0, #e6e6e6 100%);
-  box-shadow:0 5rpx 5rpx #777;
-  margin-left:38rpx;
-  margin-top:66rpx;
-  display:inline-block;
-  line-height:2.3;
-  padding-left:0;
-  padding-right:0;
-  border-radius:10px;
-  text-align: center;
-  border:1rpx solid rgba(0, 0, 0, 0.2);
+.main-container{
+  height:100%;
+  background-color:#2c6aa0;
 }
-.homebtn-hover {
-  box-shadow:none;
-  color:darkblue
+.btn-container{
+  height: 90%;
+  margin-top:30rpx;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+}
+.homebtn {
+  width: 240rpx;
+  height: 240rpx;
+  color:#eee;
+  margin-left:33rpx;
+  display:inline-block;
+  line-height:1.7em;
+  padding:0;
+  text-align: center;
+  border-width:25rpx;
+  border-style: solid;
+}
+.homebtn-hover1 {
+  color: #CFD8DC;
+  background-color: #455A64!important;
+}
+.homebtn-hover2 {
+  color: #CFD8DC;
+  background-color: #512DA8!important;
+}
+.homebtn-hover3 {
+  color: #CFD8DC;
+  background-color: #1565C0!important;
+}
+.homebtn-hover4 {
+  color: #CFD8DC;
+  background-color: #0097A7!important;
+}
+.homebtn-hover5 {
+  color: #CFD8DC;
+  background-color: #388E3C!important;
+}
+.homebtn-hover6 {
+  color: #CFD8DC;
+  background-color: #E65100!important;
 }
 .icon{
-  font-size: 77rpx;
-  margin-top: 88rpx;
+  font-size: 97rpx;
+  margin-top: 50rpx;
 }
 .icontext{
-  font-size: 33rpx;
+  font-size: 40rpx;
 }

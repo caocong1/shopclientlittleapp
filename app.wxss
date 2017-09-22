@@ -63,6 +63,7 @@ page, .page {
   content:"\f0c6"
 }
 .fa-leaf:before{
+  content:"\f06c"
 }
 .fa-user:before{
   content:"\f007"
@@ -70,7 +71,13 @@ page, .page {
 .fa-lock:before{
   content:"\f023"
 }
-  content:"\f06c"
+.fa-qrcode:before {
+	content: "\f029"
+}
+.fa-circle:before {
+	content: "\f111"
+}
+
 .page-siderbarcontent {
   height: 100%;
   width: 350rpx;
