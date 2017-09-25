@@ -8,19 +8,26 @@
           <text class="fa fa-qrcode fa-fw"/>
           二维码扫描
         </button>
-        <input type="text" bindblur="inputscancode" value="{{scancode}}" confirm-type="确定" placeholder="请输入卡卷的号码" placeholder-style="color:#bbb" style="padding-left: 30rpx;"/>
-        <view class="coupondetail">
-        卡券详情：
+        <input type="text" bindblur="inputscancode" value="{{scancode}}" confirm-type="确定" placeholder="手动输入卡卷的号码" placeholder-style="color:#bbb" style="padding-left: 30rpx;"/>
+        <view class="coupondetail" animation="{{anicoupon}}" style="display:{{coupondisplay}};">
+          <text style="margin: 10rpx;">
+            <text class="fa fa-ticket fa-fw"/>卡券详情：
+          </text>
           <view class="couponcontainer">
             <view class="coupontitle">
-              <text class="fa fa-ticket fa-fw"/>
               <text>抓钱机游戏券</text>
             </view>
             <view>
               9.16当日消费满800元(会员满600元）或会员登录朝阳大悦城APP消减1000积分,参与"抓钱机”活动1次。
             </view>
           </view>
+          <text style="margin: 10rpx;">
+            <text class="fa fa-user fa-fw"/>会员姓名：  杨煎饼
+          </text>
         </view>
+        <button class="confirmbtn" bindtap="confirm">
+          {{confirmbtname}}
+        </button>
       </view>
     </view>
 </view>

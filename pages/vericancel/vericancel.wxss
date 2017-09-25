@@ -8,7 +8,18 @@
   margin-top: 40rpx;
   margin-left: 40rpx;
   margin-right: 40rpx;
-  font-size: 1.2em
+  font-size: 1.1em;
+  height: 100rpx;
+  background: #fff;
+}
+.confirmbtn{
+  margin-top: 40rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  font-size: 1.1em;
+  height: 100rpx;
+  background: #2ecc71;
+  color: #fff;
 }
 input{
   border: 1px solid #ccc;
@@ -17,31 +28,29 @@ input{
   margin-right: 40rpx;
   height: 100rpx;
   border-radius: 10rpx;
+  background: #fff;
 }
 .coupondetail{
   border: 1px solid #ccc;
   margin-top: 40rpx;
   margin-left: 40rpx;
   margin-right: 40rpx;
+  padding: 10rpx;
   border-radius: 10rpx;
-}
-.couponcontainer::before{
-  font: normal normal normal 14rpx/1 FontAwesome;
-  font-size: 40rpx;
-  color: whitesmoke;
-  left:50rpx;
-  /* height:100%; */
-  content: "\f111";
-  position: absolute;
+  background: #fff;
 }
 .couponcontainer{
   margin:20rpx;
-  padding:10rpx;
+  padding:30rpx;
   background-color: #f1c40f;
   color:azure;
+  background-image: url('http://sorawatcher.com/img/circle.png');
+  background-repeat:repeat-y;
+  background-position:-22rpx -32rpx;
+  background-size:40rpx 70rpx;
 }
 .coupontitle{
-  color:#34465d;
-  padding-top:20rpx;
+  padding-bottom:20rpx;
   padding-left:20rpx;
+  border-bottom:1rpx dashed #eee;
 }
