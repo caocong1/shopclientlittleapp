@@ -77,7 +77,12 @@ page, .page {
 .fa-circle:before {
 	content: "\f111"
 }
-
+.fa-sign-out:before {
+	content: "\f08b"
+}
+.fa-ticket:before {
+	content: "\f145"
+}
 .page-siderbarcontent {
   height: 100%;
   width: 350rpx;
@@ -85,7 +90,6 @@ page, .page {
   background-color: #222a2d;
   z-index: 0;
 }
-
 .wc {
   color: white;
   padding: 0 0 0 0;

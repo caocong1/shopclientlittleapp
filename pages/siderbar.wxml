@@ -1,11 +1,11 @@
   <view class="page-siderbarcontent">
     <view class="page-sidebar">
-      <view class="wc">
+      <!-- <view class="wc">
         <navigator url="../home/home" open-type="redirect" hover-class="navigator-hover">
           <text class=" fa fa-home fa-fw"/>
           首页
         </navigator>
-      </view>
+      </view> -->
       <view class="wc">
         <navigator url="../notice/notice" open-type="redirect" hover-class="navigator-hover">
           <text class=" fa fa-envelope-open fa-fw"/>
@@ -42,6 +42,21 @@
           财务单据
         </navigator>
       </view>
-      <image src="{{avater}}"></image>
+      <view class="wc" style=''>
+        <navigator url="../mine/mine" open-type="redirect" hover-class="navigator-hover">
+        <view>
+          <text class=" fa fa-user fa-fw"/>
+          个人设置
+        </view>
+        </navigator>
+      </view>
+      <view class="wc" style=''>
+        <navigator bindtap="loginout" url="../login/login" open-type="redirect" hover-class="navigator-hover">
+        <view>
+          <text class=" fa fa-sign-out fa-fw"/>
+          退出系统
+        </view>
+        </navigator>
+      </view>
     </view>
   </view>

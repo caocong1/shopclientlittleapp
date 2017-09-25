@@ -1,8 +1,9 @@
 //app.js
-var qcloud = require('./vendor/wafer2-client-sdk/index');
+var qcloud = require('./vendor/wafer-client-sdk/index');
 var config = require('./config');
 App({
   onLaunch: function () {
+    // wx.redirectTo((wx.getStorageSync('loginstatus')) ? { url: 'pages/home/home' } : { url: 'pages/login/login' });
     qcloud.setLoginUrl(config.service.loginUrl);
   },
   globalData: {
@@ -14,6 +15,7 @@ App({
     mark: 0,
     newmark: 0,
     b:false,
-    useravater:''
+    avatarUrl:'',
+    storecode:''
   },
 })

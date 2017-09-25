@@ -31,7 +31,7 @@ Page({
       success: (res) => {
         console.log(res)
         this.setData({
-          res:JSON.stringify(res)
+          scancode:res.result
         })
       }
     })

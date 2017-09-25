@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/login/login",
     "pages/notice/notice",
-    "pages/home/home",
     "pages/vericancel/vericancel",
     "pages/financial/financial",
     "pages/repair/repair",

@@ -2,16 +2,23 @@
 .container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: #0277BD;
+  justify-content: flex-start;
+  background-color: #ecf0f1;
+  padding-top:150rpx;
 }
-
 .title{
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 30rpx;
   overflow:hidden;
   height:111rpx;
+}
+.title text{
+  width: 100%;
+  margin-left: 0;
+  position: static;
+  font-weight:bold;
+  color:#2ecc71;
 }
 input{
   border: 1rpx solid #777;
@@ -28,7 +35,7 @@ input{
   position: absolute;
   margin-top:30rpx;
   margin-left:50rpx;
-  color: #009688;
+  color: #27ae60;
 }
 button{
   width:92%;

@@ -1,25 +1,43 @@
 // pages/home/home.js
-var s = require('../../shopclient.js');
-var appgl = getApp().globalData;
+const s = require('../../shopclient.js');
+const appgl = getApp().globalData;
 Page({
   data: {
     title: "首页",
     titleicon: "fa-home",
     open: false
   },
-  onReady:function(){
-    appgl.open=this.data.open
+  onLoad(){
+    if (!wx.getStorageSync('loginstatus')) {
+      wx.redirectTo({
+        url: '../login/login'
+      })
+      wx.showLoading({
+        title: '返回登录界面',
+        mask: true
+      })
+    }
   },
-  tap_ch: function () {
+  onReady(){
+    appgl.open=this.data.open;
+    this.setData({
+      storecode: wx.getStorageSync('storecode'),
+      byname: wx.getStorageSync('byname')
+    })
+  },
+  tap_ch() {
     s.toggle(this)
   },
-  tap_start: function (e) {
+  tap_start(e) {
     s.dragstart(e)
   },
-  tap_drag: function (e) {
+  tap_drag(e) {
     s.drag(e)
   },
-  tap_end: function (e) {
+  tap_end() {
     s.dragend(this)
+  },
+  loginout(){
+    wx.clearStorage()
   }
 })

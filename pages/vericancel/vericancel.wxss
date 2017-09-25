@@ -18,3 +18,30 @@ input{
   height: 100rpx;
   border-radius: 10rpx;
 }
+.coupondetail{
+  border: 1px solid #ccc;
+  margin-top: 40rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  border-radius: 10rpx;
+}
+.couponcontainer::before{
+  font: normal normal normal 14rpx/1 FontAwesome;
+  font-size: 40rpx;
+  color: whitesmoke;
+  left:50rpx;
+  /* height:100%; */
+  content: "\f111";
+  position: absolute;
+}
+.couponcontainer{
+  margin:20rpx;
+  padding:10rpx;
+  background-color: #f1c40f;
+  color:azure;
+}
+.coupontitle{
+  color:#34465d;
+  padding-top:20rpx;
+  padding-left:20rpx;
+}
