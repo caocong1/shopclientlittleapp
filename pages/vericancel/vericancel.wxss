@@ -8,15 +8,15 @@
   margin-top: 40rpx;
   margin-left: 40rpx;
   margin-right: 40rpx;
-  font-size: 1.1em;
-  height: 100rpx;
+  font-size:55rpx;
+  height:150rpx;
   background: #fff;
 }
 .confirmbtn{
   margin-top: 40rpx;
   margin-left: 40rpx;
   margin-right: 40rpx;
-  font-size: 1.1em;
+  font-size: 45rpx;
   height: 100rpx;
   background: #2ecc71;
   color: #fff;
@@ -26,6 +26,7 @@ input{
   margin-top: 40rpx;
   margin-left: 40rpx;
   margin-right: 40rpx;
+  padding-left: 30rpx;
   height: 100rpx;
   border-radius: 10rpx;
   background: #fff;
@@ -52,5 +53,8 @@ input{
 .coupontitle{
   padding-bottom:20rpx;
   padding-left:20rpx;
+  border-bottom:1rpx dashed #eee;
+}
+.couponcontent{
   border-bottom:1rpx dashed #eee;
 }

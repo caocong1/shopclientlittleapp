@@ -1,5 +1,5 @@
 // pages/login/login.js
-const qcloud = require('../../vendor/wafer-client-sdk/index');
+// const qcloud = require('../../vendor/wafer-client-sdk/index');
 const appgl = getApp().globalData;
 // 显示繁忙提示
 var showBusy = text => wx.showToast({
@@ -30,38 +30,63 @@ function login() {
   if (storecode == '' | username == '' | password == '') {
     showModel('输入错误', '请填完整店铺号or用户名or密码')
   } else {
-    qcloud.request({
-      login: true,
+    wx.request({
+      url: 'https://sorawatcher.com/wx/noah/main/login.do',
       data: {
         storecode: storecode,
         username: username,
         password: password
       },
-      url: 'https://sorawatcher.com/user',
-      success: function (res) {
-        var userInfo = res.data.data.userInfo
-        if (!wx.getStorageSync('openId')) {
-          wx.setStorageSync('avatarUrl', userInfo.avatarUrl)
-          wx.setStorageSync('openId', userInfo.openId)
-        }
-        if (userInfo.loginstatus === 1) {
-          showSuccess('登录成功')
-          wx.setStorageSync('loginstatus', 1)
+      method:'POST',
+      success(res){
+        console.log(res)
+        wx.setStorageSync('loginstatus', res.data)
+        if(res.data){
           wx.setStorageSync('storecode', storecode)
-          wx.setStorageSync('byname', userInfo.byname)
+          wx.setStorageSync('username', username)
           wx.redirectTo({
             url: '../home/home'
           })
-        } else if (userInfo.loginstatus === 2) {
-          showModel('登录失败', '该店铺无此用户')
-        } else {
+        }else{
           showModel('登录失败', '输入错误')
         }
       },
-      fail: function (err) {
+      fail(err){
         console.log(err)
       }
-    });
+    })
+    // qcloud.request({
+    //   login: true,
+    //   data: {
+    //     storecode: storecode,
+    //     username: username,
+    //     password: password
+    //   },
+    //   url: 'https://sorawatcher.com/user',
+    //   success: function (res) {
+    //     var userInfo = res.data.data.userInfo
+    //     if (!wx.getStorageSync('openId')) {
+    //       wx.setStorageSync('avatarUrl', userInfo.avatarUrl)
+    //       wx.setStorageSync('openId', userInfo.openId)
+    //     }
+    //     if (userInfo.loginstatus === 1) {
+    //       showSuccess('登录成功')
+    //       wx.setStorageSync('loginstatus', 1)
+    //       wx.setStorageSync('storecode', storecode)
+    //       wx.setStorageSync('byname', userInfo.byname)
+    //       wx.redirectTo({
+    //         url: '../home/home'
+    //       })
+    //     } else if (userInfo.loginstatus === 2) {
+    //       showModel('登录失败', '该店铺无此用户')
+    //     } else {
+    //       showModel('登录失败', '输入错误')
+    //     }
+    //   },
+    //   fail: function (err) {
+    //     console.log(err)
+    //   }
+    // });
   }
 }
 Page({
@@ -113,42 +138,3 @@ Page({
     }
   }
 })
-function login() {
-  showBusy('正在登录');
-  if (storecode == '' | username == '' | password == '') {
-    showModel('输入错误', '请填完整店铺号or用户名or密码')
-  } else {
-    qcloud.request({
-      login: true,
-      data: {
-        storecode: storecode,
-        username: username,
-        password: password
-      },
-      url: 'https://sorawatcher.com/user',
-      success: function (res) {
-        var userInfo = res.data.data.userInfo
-        if (!wx.getStorageSync('openId')) {
-          wx.setStorageSync('avatarUrl', userInfo.avatarUrl)
-          wx.setStorageSync('openId', userInfo.openId)
-        }
-        if (userInfo.loginstatus === 1) {
-          showSuccess('登录成功')
-          wx.setStorageSync('loginstatus', 1)
-          wx.setStorageSync('storecode', storecode)
-          wx.setStorageSync('byname', userInfo.byname)
-          wx.redirectTo({
-            url: '../home/home'
-          })
-        } else if (userInfo.loginstatus === 2) {
-          showModel('登录失败', '该店铺无此用户')
-        } else {
-          showModel('登录失败', '输入错误')
-        }
-      },
-      fail: function (err) {
-        console.log(err)
-      }
-    });
-  }
-}

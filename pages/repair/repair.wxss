@@ -1,1 +1,24 @@
 /* pages/repair/repair.wxss */
+.newrepairbtn{
+  margin: 40rpx;
+  height: 150rpx;
+  font-size:55rpx;
+  background: #fff;
+}
+input{
+  border:1rpx solid #ccc;
+  margin:40rpx;
+  padding-left: 30rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  background: #fff;
+}
+.picker{
+  border:1rpx solid #ccc;
+  height: 75rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  width:480rpx;
+  text-align:center;
+  padding-top: 25rpx;
+}

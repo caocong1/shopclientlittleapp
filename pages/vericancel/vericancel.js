@@ -2,7 +2,13 @@
 var s = require('../../shopclient.js');
 var appgl = getApp().globalData;
 var scancode;
-
+function vericancel(){
+  wx.showToast({
+    title: '核销成功',
+    icon: 'success',
+    duration: 2000
+  })
+}
 Page({
   data: {
     title: "卡券核销",
@@ -10,19 +16,19 @@ Page({
     open: false,
     opencoupon:false,
     confirmbtname: '查询卡券',
-    coupondisplay:'none'
+    top:0,
+    coupondisplay:'none',
+    coupontitle:'',
+    couponcontent:'',
+    member: '',
+    couponNo:'',
+    toview:''
   },
   inputscancode(e) {
     scancode = e.detail.value
   },
   onReady() {
     appgl.open = this.data.open
-    const animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'linear',
-      // transformOrigin:'100% 0'
-    })
-    this.animation=animation
   },
   tap_ch() {
     s.toggle(this)
@@ -40,35 +46,47 @@ Page({
     wx.scanCode({
       success: (res) => {
         console.log(res)
+        this.scancode = res.result
         this.setData({
-          scancode:res.result
+          scancode: this.scancode
         })
       }
     })
   },
   confirm(){
     if(this.opencoupon){
-      this.opencoupon=false
+      wx.showLoading({
+        title: '核销中',
+        mark:true
+      })
+      vericancel()
+      this.opencoupon = false
       this.setData({
         coupondisplay: 'none',
-        confirmbtname:'查询卡券'
+        confirmbtname: '查询卡券',
+        scancode:'',
+        top:0
       })
-      // this.animation.scaleY(0).step()
-      // this.setData({
-      //   anicoupon: this.animation.export()
-      // })
     }else{
       this.opencoupon = true
-      this.animation.opacity(0).step()
       this.setData({
         coupondisplay:'block',
-        anicoupon: this.animation.export(),
-        confirmbtname: '确定使用'
+        coupontitle: '抓钱机游戏券',
+        couponcontent: '9.16当日消费满800元(会员满600元）或会员登录朝阳大悦城APP消减1000积分,参与"抓钱机”活动1次。',
+        member: '王小明',
+        couponNo: '88888888888888888',
+        confirmbtname: '确定使用',
+        toview: 'coupond'
       })
-      // this.animation.height('100%').step()
-      // this.setData({
-      //   anicoupon: this.animation.export()
-      // })
     }
+  },
+  closecoupond(){
+    this.opencoupon = false
+    this.setData({
+      coupondisplay: 'none',
+      confirmbtname: '查询卡券',
+      scancode: '',
+      top:0
+    })
   }
 })

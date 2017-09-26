@@ -1,33 +1,41 @@
 <!--pages/vericancel/vericancel.wxml-->
 <view class="page">
     <include src="../siderbar.wxml"/>
-    <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
+    <scroll-view scroll-y scroll-top="{{top}}" scroll-into-view="{{toview}}" bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
       <include src="../pagetop.wxml"/>
       <view class='main-container'>
         <button class="scanbtn" bindtap="scancode">
           <text class="fa fa-qrcode fa-fw"/>
           二维码扫描
         </button>
-        <input type="text" bindblur="inputscancode" value="{{scancode}}" confirm-type="确定" placeholder="手动输入卡卷的号码" placeholder-style="color:#bbb" style="padding-left: 30rpx;"/>
-        <view class="coupondetail" animation="{{anicoupon}}" style="display:{{coupondisplay}};">
+        <input type="text" bindblur="inputscancode" value="{{scancode}}" confirm-type="确定" placeholder="手动输入卡卷的号码" placeholder-style="color:#bbb"/>
+
+        <view id="coupond" class="coupondetail" animation="{{anicoupon}}" style="display:{{coupondisplay}};top:-100rpx">
+          <text style="margin: 10rpx;">
+            <text class="fa fa-user fa-fw"/>会员姓名：  {{member}}
+          </text>
+          <text class="fa fa-times-circle fa-fw" bindtap='closecoupond' style="float: right;color: #e74c3c;"/>
           <text style="margin: 10rpx;">
             <text class="fa fa-ticket fa-fw"/>卡券详情：
           </text>
           <view class="couponcontainer">
             <view class="coupontitle">
-              <text>抓钱机游戏券</text>
+              <text>{{coupontitle}}</text>
             </view>
-            <view>
-              9.16当日消费满800元(会员满600元）或会员登录朝阳大悦城APP消减1000积分,参与"抓钱机”活动1次。
+            <view class='couponcontent'>
+              {{couponcontent}}
+            </view>
+            <view style="height: 35rpx;">
+              <text style="float: right;font-size: 0.8em;">No.{{couponNo}}</text>
             </view>
           </view>
-          <text style="margin: 10rpx;">
-            <text class="fa fa-user fa-fw"/>会员姓名：  杨煎饼
-          </text>
         </view>
-        <button class="confirmbtn" bindtap="confirm">
-          {{confirmbtname}}
-        </button>
+
+        <view>
+          <button class="confirmbtn" bindtap="confirm">
+            {{confirmbtname}}
+          </button>
+        </view>
       </view>
-    </view>
+    </scroll-view>
 </view>

@@ -14,7 +14,6 @@ page, .page {
   font-family: 'FontAwesome';
   src: url('https://cdn.bootcss.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf') format('truetype');
 }
-
 .fa {
   display: inline-block;
   font: normal normal normal 14rpx/1 FontAwesome;
@@ -23,36 +22,28 @@ page, .page {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .fa-fw {
   width: 1.28571429em;
   text-align: center;
 }
-
 .fa-home:before {
   content: "\f015";
 }
-
 .fa-envelope-open:before {
   content: "\f2b6";
 }
-
 .fa-newspaper-o:before {
   content: "\f1ea";
 }
-
 .fa-wrench:before {
   content: "\f0ad";
 }
-
 .fa-headphones:before {
   content: "\f025";
 }
-
 .fa-rmb:before {
   content: "\f157";
 }
-
 .fa-thumbs-up:before {
   content: "\f164";
 }
@@ -60,16 +51,16 @@ page, .page {
 	content: "\f002"
 }
 .fa-paperclip:before{
-  content:"\f0c6"
+  content: "\f0c6"
 }
 .fa-leaf:before{
-  content:"\f06c"
+  content: "\f06c"
 }
 .fa-user:before{
-  content:"\f007"
+  content: "\f007"
 }
 .fa-lock:before{
-  content:"\f023"
+  content: "\f023"
 }
 .fa-qrcode:before {
 	content: "\f029"
@@ -83,11 +74,17 @@ page, .page {
 .fa-ticket:before {
 	content: "\f145"
 }
+.fa-times-circle:before {
+	content: "\f057"
+}
+.fa-cogs:before {
+	content: "\f085"
+}
 .page-siderbarcontent {
   height: 100%;
   width: 350rpx;
   position: fixed;
-  background-color: #222a2d;
+  background-color: #34495e;
   z-index: 0;
 }
 .wc {

@@ -3,5 +3,24 @@
     <include src="../siderbar.wxml"/>
     <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
       <include src="../pagetop.wxml"/>
+      <view class="main-container">
+        <button class="newrepairbtn" bindtap="newrepair" style="display:{{newrepairbtn}}">
+          <text class="fa fa-cogs fa-fw"/>
+          我要报修
+        </button>
+        <view>
+          <form>
+            <view style='display:flex;'>
+              <text style="margin-top: 29rpx;margin-left: 45rpx;">报修类型：</text>
+              <picker bindchange="repairtypepicker" value="{{index}}" range="{{repairtype}}">
+                <view class="picker">
+                  {{repairtype[index]}}
+                </view>
+              </picker>
+            </view>
+            <input type="text" placeholder=""/>
+          </form>
+        </view>
+      </view>
     </view>
 </view>
