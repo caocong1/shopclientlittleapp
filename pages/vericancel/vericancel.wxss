@@ -1,16 +1,14 @@
-.page-top{
-  background-color:#651FFF
-}
 .main-container{
   height:100%;
 }
 .scanbtn{
-  margin-top: 40rpx;
+  margin-top: 200rpx;
   margin-left: 40rpx;
   margin-right: 40rpx;
-  font-size:55rpx;
-  height:150rpx;
-  background: #fff;
+  font-size:80rpx;
+  height:200rpx;
+  background: #3399CC;
+  color: #fff
 }
 .confirmbtn{
   margin-top: 40rpx;
@@ -18,7 +16,7 @@
   margin-right: 40rpx;
   font-size: 45rpx;
   height: 100rpx;
-  background: #2ecc71;
+  background: #666699;
   color: #fff;
 }
 input{
@@ -37,14 +35,15 @@ input{
   margin-left: 40rpx;
   margin-right: 40rpx;
   padding: 10rpx;
+  padding-top:40rpx;
   border-radius: 10rpx;
   background: #fff;
 }
 .couponcontainer{
   margin:20rpx;
   padding:30rpx;
-  background-color: #f1c40f;
-  color:azure;
+  background-color: #f39c12;
+  color:#fff;
   background-image: url('http://sorawatcher.com/img/circle.png');
   background-repeat:repeat-y;
   background-position:-22rpx -32rpx;

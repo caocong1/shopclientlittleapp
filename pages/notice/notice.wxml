@@ -4,14 +4,20 @@
   <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
     <include src="../pagetop.wxml"/>
     <view class="main-container">
-      <scroll-view scroll-y>
+      <scroll-view scroll-y="true" class="container" scroll-into-view="{{scrollin}}" bindscrolltolower="refresh" scroll-with-animation="true" bindscroll="scrolltorefresh">
         <view class="searchbar">
           <text class="fa fa-search fa-fw"></text>
           <input type="text" confirm-type="查询" placeholder="请输入搜索内容" placeholder-style="color:#ddd"/>
         </view>
-        <view wx:for="{{itemData}}" wx:for-item="item" wx:for-index="index"> 
-        <template is="noticeitem" data="{{...item}}"/>
+        <view class="refresh" style="text-align:center;">
+          <image src="http://sorawatcher.com/img/loading.gif" style='display:{{loadingif}};width:40rpx;height:40rpx'></image>{{refreshcontent}}
         </view>
+        <view id="notice">
+          <view wx:for="{{itemData}}" wx:for-item="item" wx:for-index="index" wx:key="id"> 
+            <template is="noticeitem" data="{{...item}}"/>
+          </view>
+        </view>
+
 
       </scroll-view>
     </view>

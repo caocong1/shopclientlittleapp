@@ -1,11 +1,14 @@
 /* pages/home/home.wxss */
 .main-container{
   height:100%;
-  background-color:#2c6aa0;
+  background-color:#99CCFF;
+}
+.page-top{
+  background-color:#99CCFF;
 }
 .btn-container{
   height: 90%;
-  margin-top:30rpx;
+  /* margin-top:30rpx; */
   display: flex;
   flex-wrap:wrap;
   justify-content:space-around;
@@ -13,7 +16,7 @@
 .homebtn {
   width: 240rpx;
   height: 240rpx;
-  color:#eee;
+  color:#fff;
   margin-left:33rpx;
   display:inline-block;
   line-height:1.7em;
@@ -21,10 +24,12 @@
   text-align: center;
   border-width:25rpx;
   border-style: solid;
+  background-color: #0099CC;
+  border-color:#0099CC;
 }
-.homebtn-hover1 {
+.homebtn-hover {
   color: #CFD8DC;
-  background-color: #455A64!important;
+  background-color: #0088CC;
 }
 .homebtn-hover2 {
   color: #CFD8DC;

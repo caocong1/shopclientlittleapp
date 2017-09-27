@@ -37,6 +37,12 @@
 					"name": "repair",
 					"pathName": "pages/repair/repair",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
 				}
 			]
 		},

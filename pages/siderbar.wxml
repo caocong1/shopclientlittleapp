@@ -36,7 +36,7 @@
           销售调整
         </navigator>
       </view>
-      <view class="wc" style='border-bottom:0.5px dotted #999;'>
+      <view class="wc" style='border-bottom:0.5px dotted #eee;'>
         <navigator url="../financial/financial" open-type="redirect" hover-class="navigator-hover">
           <text class=" fa fa-newspaper-o fa-fw"/>
           财务单据

@@ -16,7 +16,7 @@
       <text class="fa fa-lock fa-fw"></text>
       <input type="text" bindblur="inputpassword" bindconfirm="passwordconfirm" focus="{{passwordfocus}}" password="true" confirm-type="确定" placeholder="请输入密码" placeholder-style="color:#bbb"/>
     </view>
-    <button size="default" bindtap="login" type="primary" form-type="submit" hover-class="button-hover">确定</button>
+    <button size="default" bindtap="login" form-type="submit" hover-class="button-hover">确定</button>
     <button size="default" type="default" form-type="reset" hover-class="button-hover">重置</button>
   </form>
 </view>

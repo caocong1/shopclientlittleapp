@@ -1,11 +1,8 @@
 /* pages/notice/notice.wxss */
-.page-top{
-  background-color:#607D8B;
-}
 .searchbar {
   width: 100%;
   height: 7%;
-  background-color: #208be8;
+  background-color: #99CCFF;
   padding-top: 10rpx;
   padding-bottom: 10rpx;
 }
@@ -31,7 +28,10 @@
   margin-top: 20rpx;
   margin-left: 35rpx;
 }
-
+.container{
+  height:1200rpx;
+  background: whitesmoke
+}
 .notice-item {
   display: inline-flex;
   flex-direction: row;
@@ -89,6 +89,11 @@
   font-size: 0.8em;
 }
 
-.main-container scroll-view {
-  height: 93%;
+.refresh{
+  background: #fff;
+  height: 100px;
+  width:100%;
+  margin-top: 1138rpx;
+  padding-top: 50rpx;
+  position:absolute;
 }

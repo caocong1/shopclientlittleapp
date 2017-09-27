@@ -11,7 +11,7 @@
     "pages/mine/mine"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#2c6aa0",
+    "navigationBarBackgroundColor": "#99CCFF",
     "navigationBarTitleText": "Noah商户系统",
     "navigationBarTextStyle": "white"
   },

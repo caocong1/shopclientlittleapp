@@ -1,20 +1,21 @@
 <!--pages/vericancel/vericancel.wxml-->
 <view class="page">
     <include src="../siderbar.wxml"/>
-    <scroll-view scroll-y scroll-top="{{top}}" scroll-into-view="{{toview}}" bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
+    <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
       <include src="../pagetop.wxml"/>
       <view class='main-container'>
-        <button class="scanbtn" bindtap="scancode">
+        <button class="scanbtn" bindtap="scancode" style="display:{{scanbtndisplay}};">
           <text class="fa fa-qrcode fa-fw"/>
           二维码扫描
         </button>
-        <input type="text" bindblur="inputscancode" value="{{scancode}}" confirm-type="确定" placeholder="手动输入卡卷的号码" placeholder-style="color:#bbb"/>
+
+        <input type="text" bindfocus="inputfocus" bindblur="inputscancode" value="" confirm-type="确定" placeholder="手动输入卡卷的号码" placeholder-style="color:#bbb;text-align:center;" style="display:{{inputdisplay}};"/>
 
         <view id="coupond" class="coupondetail" animation="{{anicoupon}}" style="display:{{coupondisplay}};top:-100rpx">
+          <text class="fa fa-times-circle fa-fw" bindtap='closecoupond' style="float: right;color: #e74c3c;"/>
           <text style="margin: 10rpx;">
             <text class="fa fa-user fa-fw"/>会员姓名：  {{member}}
           </text>
-          <text class="fa fa-times-circle fa-fw" bindtap='closecoupond' style="float: right;color: #e74c3c;"/>
           <text style="margin: 10rpx;">
             <text class="fa fa-ticket fa-fw"/>卡券详情：
           </text>
@@ -32,10 +33,10 @@
         </view>
 
         <view>
-          <button class="confirmbtn" bindtap="confirm">
+          <button class="confirmbtn" bindtap="confirm" style="display:{{confirmbtndisplay}};">
             {{confirmbtname}}
           </button>
         </view>
       </view>
-    </scroll-view>
+    </view>
 </view>

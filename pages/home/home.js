@@ -8,6 +8,7 @@ Page({
     open: false
   },
   onLoad(){
+    wx.hideLoading()
     if (!wx.getStorageSync('loginstatus')) {
       wx.redirectTo({
         url: '../login/login'
