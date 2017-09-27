@@ -1,1 +1,4 @@
 /* pages/complain/complain.wxss */
+.main-container{
+  background: whitesmoke;
+}

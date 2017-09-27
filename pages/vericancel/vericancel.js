@@ -64,8 +64,17 @@ Page({
     confirmbtndisplay: 'none'
   },
   inputfocus(e){
+    // this.setData({
+    //   confirmbtndisplay: 'block' 
+    // })
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: "ease",
+      transformOrigin: "center"
+    })
+    animation.left('175rpx').width('400rpx').step()
     this.setData({
-      confirmbtndisplay: 'block' 
+      anime:animation.export()
     })
   },
   inputscancode(e) {
@@ -73,6 +82,48 @@ Page({
     if(scancode === ''){
       this.setData({
         confirmbtndisplay: 'none'
+      })
+    }
+  },
+  inputcode(e){
+    console.log(e)
+    if(e.detail.cursor===11){
+      console.log("sssssss")
+      scancode=e.detail.value
+      wx.request({
+        url: 'https://sorawatcher.com/wx/noah/tenant/search.do',
+        method: 'POST',
+        data: {
+          couponNo: res.result,
+          vtype: 1
+        },
+        success: (r) => {
+          console.log(r)
+          var coupon = r.data.value
+          if (coupon !== null) {
+            this.opencoupon = true
+            this.setData({
+              scancode: res.result,
+              coupondisplay: 'block',
+              coupontitle: coupon.title,
+              couponcontent: coupon.content,
+              member: coupon.member,
+              couponNo: res.result,
+              confirmbtname: '确定使用',
+              scanbtndisplay: 'none',
+              inputdisplay: 'none',
+              confirmbtndisplay: 'block'
+            })
+          } else {
+            wx.showToast({
+              title: '卡券错误',
+              duration: 1000
+            })
+          }
+        },
+        fail(err) {
+          console.log(err)
+        }
       })
     }
   },

@@ -3,5 +3,7 @@
     <include src="../siderbar.wxml"/>
     <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-container {{open ? 'c-state1' : ''}}">
       <include src="../pagetop.wxml"/>
+      <view class="main-container">
+      </view>
     </view>
 </view>

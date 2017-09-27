@@ -1,9 +1,13 @@
 /* pages/repair/repair.wxss */
+.main-container{
+  padding-top:40rpx;
+}
 .newrepairbtn{
   margin: 40rpx;
   height: 150rpx;
   font-size:55rpx;
   background: #fff;
+  margin-top:0;
 }
 input{
   border:1rpx solid #ccc;
