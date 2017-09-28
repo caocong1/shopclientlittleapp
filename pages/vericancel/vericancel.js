@@ -77,6 +77,20 @@ Page({
       anime:animation.export()
     })
   },
+  inputblur(e){
+    scancode = e.detail.value
+    if (scancode === '') {
+      var b = wx.createAnimation({
+        duration: 1000,
+        timingFunction: "ease",
+        transformOrigin: "center"
+      })
+      b.left('275rpx').width('200rpx').step()
+      this.setData({
+        anime: b.export()
+      })
+    }
+  },
   inputscancode(e) {
     scancode = e.detail.value
     if(scancode === ''){

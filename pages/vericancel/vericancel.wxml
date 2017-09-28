@@ -9,8 +9,9 @@
           <text>扫码</text>
         </button>
 
-        <input animation="{{anime}}" type="text" maxlength="11" bindinput="inputcode" bindfocus="inputfocus" bindblur="inputscancode" value="" confirm-type="确定" placeholder="手动输入" placeholder-style="color:#bbb;text-align:center;" style="display:{{inputdisplay}};"/>
-
+        <input animation="{{anime}}" type="text" maxlength="11" bindinput="inputcode" bindfocus="inputfocus" bindblur="inputblur" value="" confirm-type="确定" placeholder="手动输入" placeholder-style="color:#bbb;text-align:center;" style="display:{{inputdisplay}};"/>
+        <button style="height:100rpx;width:100rpx;border:0;border-radius:50rpx;background:red;"></button>
+        <button style="height:100rpx;width:100rpx;border:0;border-radius:50rpx;background:green;"></button>
         <view id="coupond" class="coupondetail" animation="{{anicoupon}}" style="display:{{coupondisplay}};top:-100rpx">
           <text class="fa fa-times-circle fa-fw" bindtap='closecoupond' style="float: right;color: #e74c3c;"/>
           <text style="margin: 10rpx;">
