@@ -15,6 +15,16 @@ var scancode='';
 //     toview: 'coupond'
 //   })
 // }
+var animered = wx.createAnimation({
+  duration: 500,
+  timingFunction: "ease",
+  transformOrigin: "center"
+})
+var animegreen = wx.createAnimation({
+  duration: 500,
+  timingFunction: "ease",
+  transformOrigin: "center"
+})
 function vericancel(){
   var storecode = wx.getStorageSync("storecode")
   var username = wx.getStorageSync("username")
@@ -61,23 +71,43 @@ Page({
     couponcontent:'',
     member: '',
     couponNo:'',
-    confirmbtndisplay: 'none'
+    confirmbtndisplay: 'none',
+    disred:true,
+    disgreen:true,
+    inputvalue:''
   },
   inputfocus(e){
-    // this.setData({
-    //   confirmbtndisplay: 'block' 
-    // })
+    var that = this
     var animation = wx.createAnimation({
-      duration: 1000,
+      duration: 500,
+      timingFunction: "ease",
+      transformOrigin: "center"
+    })
+    var animered = wx.createAnimation({
+      duration: 500,
+      timingFunction: "ease",
+      transformOrigin: "center"
+    })
+    var animegreen = wx.createAnimation({
+      duration: 500,
       timingFunction: "ease",
       transformOrigin: "center"
     })
     animation.left('175rpx').width('400rpx').step()
+    animered.opacity('1').step()
+    animegreen.opacity('1').step()
     this.setData({
-      anime:animation.export()
+      anime: animation.export()
     })
+    setTimeout(function(){
+      that.setData({
+        animered: animered.export(),
+        animegreen: animegreen.export()
+      })
+    },500)
   },
   inputblur(e){
+    var that = this
     scancode = e.detail.value
     if (scancode === '') {
       var b = wx.createAnimation({
@@ -85,10 +115,19 @@ Page({
         timingFunction: "ease",
         transformOrigin: "center"
       })
+
+      animered.opacity('0').step()
+      animegreen.opacity('0').step()
       b.left('275rpx').width('200rpx').step()
       this.setData({
-        anime: b.export()
+        animered: animered.export(),
+        animegreen: animegreen.export()
       })
+      setTimeout(function () {
+        that.setData({
+          anime: b.export()
+        })
+      }, 500)
     }
   },
   inputscancode(e) {
@@ -101,44 +140,14 @@ Page({
   },
   inputcode(e){
     console.log(e)
-    if(e.detail.cursor===11){
-      console.log("sssssss")
+    this.setData({
+      disred: (e.detail.value === '') ? true : false
+    })
+    this.setData({
+      disgreen: (e.detail.value.length === 11) ? false : true
+    })
+    if (e.detail.value.length === 11){
       scancode=e.detail.value
-      wx.request({
-        url: 'https://sorawatcher.com/wx/noah/tenant/search.do',
-        method: 'POST',
-        data: {
-          couponNo: res.result,
-          vtype: 1
-        },
-        success: (r) => {
-          console.log(r)
-          var coupon = r.data.value
-          if (coupon !== null) {
-            this.opencoupon = true
-            this.setData({
-              scancode: res.result,
-              coupondisplay: 'block',
-              coupontitle: coupon.title,
-              couponcontent: coupon.content,
-              member: coupon.member,
-              couponNo: res.result,
-              confirmbtname: '确定使用',
-              scanbtndisplay: 'none',
-              inputdisplay: 'none',
-              confirmbtndisplay: 'block'
-            })
-          } else {
-            wx.showToast({
-              title: '卡券错误',
-              duration: 1000
-            })
-          }
-        },
-        fail(err) {
-          console.log(err)
-        }
-      })
     }
   },
   onReady() {
@@ -183,7 +192,7 @@ Page({
                 confirmbtname: '确定使用',
                 scanbtndisplay: 'none',
                 inputdisplay: 'none',
-                confirmbtndisplay: 'block'
+                confirmbtndisplay: ''
               })
             }else{
               wx.showToast({
@@ -240,6 +249,58 @@ Page({
       confirmbtname: '查询卡券',
       scancode: '',
       top:0
+    })
+  },
+  redbtn(){
+    console.log('redddddd')
+    this.setData({
+      inputvalue:''
+    })
+  },
+  greenbtn(){
+    console.log('greennnnnn')
+    wx.request({
+      url: 'https://sorawatcher.com/wx/noah/tenant/search.do',
+      method: 'POST',
+      data: {
+        couponNo: scancode,
+        vtype: 1
+      },
+      success: (r) => {
+        console.log(r)
+        var coupon = r.data.value
+        if (coupon !== null) {
+          this.opencoupon = true
+          this.setData({
+            coupondisplay: '',
+            coupontitle: coupon.title,
+            couponcontent: coupon.content,
+            member: coupon.member,
+            couponNo: scancode,
+            confirmbtname: '确定使用',
+            scanbtndisplay: 'none',
+            inputdisplay: 'none',
+            confirmbtndisplay: '',
+            disred:true,
+            disgreen:true
+          })
+          animered.opacity('1').step()
+          animegreen.opacity('1').step()
+          console.log(animered)
+          this.setData({
+            animered: animered.export(),
+            animegreen: animegreen.export()
+          })
+        } else {
+          wx.showToast({
+            title: '卡券错误',
+            duration: 1000
+          })
+        }
+      },
+      fail(err) {
+        console.log(err)
+      }
     })
   }
 })
