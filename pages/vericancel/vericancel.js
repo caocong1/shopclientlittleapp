@@ -58,6 +58,28 @@ function vericancel(){
     }
   })
 }
+function closeinput(page){
+  // scancode = e.detail.value
+  if (scancode === '') {
+    var b = wx.createAnimation({
+      duration: 1000,
+      timingFunction: "ease",
+      transformOrigin: "center"
+    })
+    animered.opacity('0').step()
+    animegreen.opacity('0').step()
+    b.left('275rpx').width('200rpx').step()
+    page.setData({
+      animered: animered.export(),
+      animegreen: animegreen.export()
+    })
+    setTimeout(function () {
+      page.setData({
+        anime: b.export()
+      })
+    }, 500)
+  }
+}
 Page({
   data: {
     title: "卡券核销",
@@ -107,28 +129,8 @@ Page({
     },500)
   },
   inputblur(e){
-    var that = this
     scancode = e.detail.value
-    if (scancode === '') {
-      var b = wx.createAnimation({
-        duration: 1000,
-        timingFunction: "ease",
-        transformOrigin: "center"
-      })
-
-      animered.opacity('0').step()
-      animegreen.opacity('0').step()
-      b.left('275rpx').width('200rpx').step()
-      this.setData({
-        animered: animered.export(),
-        animegreen: animegreen.export()
-      })
-      setTimeout(function () {
-        that.setData({
-          anime: b.export()
-        })
-      }, 500)
-    }
+    closeinput(this)
   },
   inputscancode(e) {
     scancode = e.detail.value
@@ -166,6 +168,11 @@ Page({
     s.dragend(this)
   },
   scancode(){
+    scancode = ''
+    closeinput(this)
+    this.setData({
+      inputvalue: ''
+    })
     wx.scanCode({
       onlyFromCamera:true,
       success: (res) => {
@@ -205,15 +212,9 @@ Page({
             console.log(err)
           }
         })
-        scancode = res.result
-
       },
       fail: (err)=> {
         console.log('err:',err)
-        // wx.showToast({
-        //   title: '扫描错误',
-        //   duration: 1000
-        // })
       }
     })
   },
@@ -252,13 +253,11 @@ Page({
     })
   },
   redbtn(){
-    console.log('redddddd')
     this.setData({
       inputvalue:''
     })
   },
   greenbtn(){
-    console.log('greennnnnn')
     wx.request({
       url: 'https://sorawatcher.com/wx/noah/tenant/search.do',
       method: 'POST',
@@ -284,13 +283,7 @@ Page({
             disred:true,
             disgreen:true
           })
-          animered.opacity('1').step()
-          animegreen.opacity('1').step()
-          console.log(animered)
-          this.setData({
-            animered: animered.export(),
-            animegreen: animegreen.export()
-          })
+
         } else {
           wx.showToast({
             title: '卡券错误',
@@ -302,5 +295,10 @@ Page({
         console.log(err)
       }
     })
+    this.setData({
+      inputvalue: ''
+    })
+    scancode=''
+    closeinput(this)
   }
 })
