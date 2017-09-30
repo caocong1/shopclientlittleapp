@@ -2,19 +2,6 @@
 var s = require('../../shopclient.js');
 var appgl = getApp().globalData;
 var scancode='';
-// function scancoupon(scancode,page){
-//   page.opencoupon = true
-//   page.setData({
-//     scancode: page.scancode,
-//     coupondisplay: 'block',
-//     coupontitle: '抓钱机游戏券',
-//     couponcontent: '9.16当日消费满800元(会员满600元）或会员登录朝阳大悦城APP消减1000积分,参与"抓钱机”活动1次。',
-//     member: '王小明',
-//     couponNo: '88888888888888888',
-//     confirmbtname: '确定使用',
-//     toview: 'coupond'
-//   })
-// }
 var animered = wx.createAnimation({
   duration: 500,
   timingFunction: "ease",
@@ -25,9 +12,51 @@ var animegreen = wx.createAnimation({
   timingFunction: "ease",
   transformOrigin: "center"
 })
+function searchcoupon(page){
+  wx.request({
+    url: 'https://sorawatcher.com/wx/noah/tenant/search.do',
+    method: 'POST',
+    data: {
+      couponNo: scancode,
+      vtype: 1
+    },
+    success: (r) => {
+      console.log(r)
+      if(r.data.flag){
+        var coupon = r.data.value
+        page.opencoupon = true
+        page.setData({
+          scancode: scancode,
+          coupondisplay: '',
+          coupontitle: coupon.title,
+          couponcontent: coupon.content,
+          member: coupon.member,
+          couponNo: coupon.couponNo,
+          confirmbtname: '确定使用',
+          scanbtndisplay: 'none',
+          inputdisplay: 'none',
+          confirmbtndisplay: '',
+          inputvalue: ''
+        })
+        scancode = ''
+        closeinput(page)
+        scancode = coupon.couponNo
+      } else {
+        wx.showLoading({
+          title: r.data.value,
+          // mask: true
+        })
+      }
+    },
+    fail(err) {
+      console.log(err)
+    }
+  })
+}
 function vericancel(){
   var storecode = wx.getStorageSync("storecode")
   var username = wx.getStorageSync("username")
+  console.log(scancode, storecode, username)
   wx.request({
     url: 'https://sorawatcher.com/wx/noah/tenant/search.do',
     method: 'POST',
@@ -40,15 +69,14 @@ function vericancel(){
     success(r){
       console.log(r)
       if(r.data.flag){
-        wx.showToast({
+        wx.showLoading({
           title: '核销成功',
-          icon: 'success',
-          duration: 2000
+          // mask : true
         })
       }else{
-        wx.showToast({
+        wx.showLoading({
           title: '核销失败',
-          duration: 2000
+          // mask: true
         })
       }
       scancode = ''
@@ -79,6 +107,19 @@ function closeinput(page){
       })
     }, 500)
   }
+}
+function closecoupon(page) {
+  page.opencoupon = false
+  scancode = ''
+  page.setData({
+    coupondisplay: 'none',
+    scanbtndisplay: '',
+    inputdisplay: '',
+    confirmbtndisplay: 'none',
+    confirmbtname: '查询卡券',
+    scancode: '',
+    top: 0
+  })
 }
 Page({
   data: {
@@ -159,6 +200,7 @@ Page({
     s.toggle(this)
   },
   tap_start(e) {
+    wx.hideLoading()
     s.dragstart(e)
   },
   tap_drag(e) {
@@ -168,50 +210,12 @@ Page({
     s.dragend(this)
   },
   scancode(){
-    scancode = ''
-    closeinput(this)
-    this.setData({
-      inputvalue: ''
-    })
     wx.scanCode({
       onlyFromCamera:true,
       success: (res) => {
         console.log(res)
-        wx.request({
-          url: 'https://sorawatcher.com/wx/noah/tenant/search.do',
-          method:'POST',
-          data:{
-            couponNo:res.result,
-            vtype: 1
-          },
-          success:(r)=>{
-            console.log(r)
-            var coupon = r.data.value
-            if (coupon!==null){
-              this.opencoupon = true
-              this.setData({
-                scancode: res.result,
-                coupondisplay: 'block',
-                coupontitle: coupon.title,
-                couponcontent: coupon.content,
-                member: coupon.member,
-                couponNo: res.result,
-                confirmbtname: '确定使用',
-                scanbtndisplay: 'none',
-                inputdisplay: 'none',
-                confirmbtndisplay: ''
-              })
-            }else{
-              wx.showToast({
-                title: '卡券错误',
-                duration: 1000
-              })
-            }
-          },
-          fail(err){
-            console.log(err)
-          }
-        })
+        scancode = res.result
+        searchcoupon(this)
       },
       fail: (err)=> {
         console.log('err:',err)
@@ -222,35 +226,16 @@ Page({
     if(this.opencoupon){
       wx.showLoading({
         title: '核销中',
-        mark:true
+        // mask:true
       })
       vericancel()
-      this.opencoupon = false
-      this.setData({
-        coupondisplay: 'none',
-        scanbtndisplay: 'block',
-        inputdisplay: 'block',
-        confirmbtndisplay: 'none',
-        confirmbtname: '查询卡券',
-        scancode:'',
-        top:0
-      })
+      closecoupon(this)
     }else{
 
     }
   },
-  closecoupond(){
-    this.opencoupon = false
-    scancode = ''
-    this.setData({
-      coupondisplay: 'none',
-      scanbtndisplay: 'block',
-      inputdisplay: 'block',
-      confirmbtndisplay: 'none',
-      confirmbtname: '查询卡券',
-      scancode: '',
-      top:0
-    })
+  closecoupon(){
+    closecoupon(this)
   },
   redbtn(){
     this.setData({
@@ -258,47 +243,6 @@ Page({
     })
   },
   greenbtn(){
-    wx.request({
-      url: 'https://sorawatcher.com/wx/noah/tenant/search.do',
-      method: 'POST',
-      data: {
-        couponNo: scancode,
-        vtype: 1
-      },
-      success: (r) => {
-        console.log(r)
-        var coupon = r.data.value
-        if (coupon !== null) {
-          this.opencoupon = true
-          this.setData({
-            coupondisplay: '',
-            coupontitle: coupon.title,
-            couponcontent: coupon.content,
-            member: coupon.member,
-            couponNo: scancode,
-            confirmbtname: '确定使用',
-            scanbtndisplay: 'none',
-            inputdisplay: 'none',
-            confirmbtndisplay: '',
-            disred:true,
-            disgreen:true
-          })
-
-        } else {
-          wx.showToast({
-            title: '卡券错误',
-            duration: 1000
-          })
-        }
-      },
-      fail(err) {
-        console.log(err)
-      }
-    })
-    this.setData({
-      inputvalue: ''
-    })
-    scancode=''
-    closeinput(this)
+    searchcoupon(this)
   }
 })

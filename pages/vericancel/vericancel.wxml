@@ -19,7 +19,7 @@
           <text class="fa fa-check fa-fw"/>
         </button>
         <view id="coupond" class="coupondetail" animation="{{anicoupon}}" style="display:{{coupondisplay}};top:-100rpx">
-          <text class="fa fa-times-circle fa-fw" bindtap='closecoupond' style="float: right;color: #e74c3c;"/>
+          <text class="fa fa-times-circle fa-fw" bindtap='closecoupon' style="float: right;color: #e74c3c;"/>
           <text style="margin: 10rpx;">
             <text class="fa fa-user fa-fw"/>会员姓名：  {{member}}
           </text>
