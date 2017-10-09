@@ -1,0 +1,39 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false
+	},
+	"compileType": "weapp",
+	"libVersion": "1.5.4",
+	"appid": "wxa32c03e9f0ccacc0",
+	"projectname": "shopclientlittleapp",
+	"condition": {
+		"weapp": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "vericancel",
+					"pathName": "pages/vericancel/vericancel",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "repair",
+					"pathName": "pages/repair/repair"
+				}
+			]
+		},
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		}
+	}
+}

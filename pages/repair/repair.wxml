@@ -8,17 +8,44 @@
           <text class="fa fa-cogs fa-fw"/>
           我要报修
         </button>
-        <view>
+        <view style='display:{{addrepairdisplay}}'>
           <form>
-            <view style='display:flex;'>
-              <text style="margin-top: 29rpx;margin-left: 45rpx;">报修类型：</text>
+            <view style='display:flex;flex-wrap:wrap;'>
+              <text style="margin-top: 23rpx;margin-left: 45rpx;">报修类型：</text>
               <picker bindchange="repairtypepicker" value="{{index}}" range="{{repairtype}}">
                 <view class="picker">
                   {{repairtype[index]}}
                 </view>
               </picker>
+              <text style="margin-top: 40rpx;margin-left: 45rpx;">报修内容：</text>
+              <textarea auto-height  value="{{repaircontent}}" style="width:360rpx;background:#fff;margin-top:29rpx;padding:20rpx;border:1rpx solid #ccc;border-radius: 10rpx;"></textarea>
+              <button bindtap="uploadimgbtn" style="margin-top: 29rpx;background:#FFFFCC;width:500rpx">
+                <text class="fa fa-file-image-o fa-fw"/>
+                上传照片
+              </button>
+              <view style='width:100%;display:flex;margin:30rpx'>
+                <view class='img' style='display:{{imgdisplay[0]}}'>
+                  <image src="{{imgurl[0]}}" bindtap='imgp' data-img='0' class='img' mode="aspectFit"></image>
+                  <text bindtap='imgclose' data-img='0' class="fa fa-close fa-fw" style="color:#CC3333;margin-left:90rpx;"/>
+                </view>
+                <view class='img' style='display:{{imgdisplay[1]}}'>
+                  <image src="{{imgurl[1]}}" bindtap='imgp' data-img='1' class='img' mode="aspectFit"></image>
+                  <text bindtap='imgclose' data-img='1' class="fa fa-close fa-fw" style="color:#CC3333;margin-left:90rpx;"/>
+                </view>
+                <view class='img' style='display:{{imgdisplay[2]}}'>
+                  <image src="{{imgurl[2]}}" bindtap='imgp' data-img='2' class='img' mode="aspectFit"></image>
+                  <text bindtap='imgclose' data-img='2' class="fa fa-close fa-fw" style="color:#CC3333;margin-left:90rpx;"/>
+                </view>
+              </view>
+              <button bindtap="submitrepair" style="margin-top: 66rpx;background:#0099CC;width:500rpx;color:#fff;">
+                <text class="fa fa-check fa-fw"/>
+                提交报修
+              </button>
+              <button bindtap="resetrepair" style="margin-top: 29rpx;background:#FF6666;width:500rpx;color:#fff;">
+                <text class="fa fa-refresh fa-fw"/>
+                重置
+              </button>
             </view>
-            <input type="text" placeholder=""/>
           </form>
         </view>
       </view>

@@ -19,10 +19,17 @@ input{
 }
 .picker{
   border:1rpx solid #ccc;
-  height: 75rpx;
+  height: 70rpx;
   border-radius: 10rpx;
   background: #fff;
-  width:480rpx;
+  width:400rpx;
   text-align:center;
   padding-top: 25rpx;
+}
+.img{
+  width: 200rpx;
+  height:200rpx;
+  margin: 15rpx;
+  border: 1rpx solid #ccc;
+  background: #fff;
 }

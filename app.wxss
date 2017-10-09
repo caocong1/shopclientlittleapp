@@ -89,6 +89,9 @@ page, .page {
 .fa-check:before {
 	content: "\f00c"
 }
+.fa-file-image-o:before {
+	content: "\f1c5"
+}
 .page-siderbarcontent {
   height: 100%;
   width: 350rpx;
